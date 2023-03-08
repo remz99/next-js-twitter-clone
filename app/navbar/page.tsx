@@ -10,7 +10,7 @@ export default async function NavBar() {
   const session = await getServerSession(authOptions)
 
   return (
-    <nav className="flex justify-between items-center py-8">
+    <nav className="flex justify-between items-center py-6">
       <Link href={'/'}>
         <h1 className="font-bold text-lg">Twitter Clone</h1>
       </Link>
