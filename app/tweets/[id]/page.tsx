@@ -37,7 +37,7 @@ export default function TweetDetail(url: URL) {
 
       <CreateReplyForm id={data.id} />
 
-      <div className="my-8 flex items-center gap-4 text-white before:h-px before:flex-1 before:bg-twitter-extra-light-gray  before:content-[''] after:h-px after:flex-1 after:bg-twitter-extra-light-gray  after:content-['']">
+      <div className="my-8 flex items-center gap-4 text-white before:h-px before:flex-1 before:bg-twitter-extra-light-gray  before:content-[''] after:h-px after:flex-1 after:bg-twitter-extra-light-gray after:content-['']">
         Replies
       </div>
 

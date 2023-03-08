@@ -44,13 +44,19 @@ export default function Sidebar() {
           <label className="relative block">
             <span className="sr-only">Search</span>
             <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-              <svg className="h-5 w-5 fill-slate-300" viewBox="0 0 20 20"></svg>
+              <Image
+                height={16}
+                width={16}
+                className=""
+                src="magnifying-glass.svg"
+                alt="magnifying-glass"
+              />
             </span>
 
             <input
               type="text"
               onChange={(e) => setSearchTerm(e.target.value) }
-              className="h-10 px-6 pr-5 w-full rounded-xl text-sm focus:outline-none bg-purple-white shadow rounded border-0 placeholder:italic"
+              className="h-10 px-6 pr-5 pl-8 w-full rounded-xl text-sm focus:outline-none bg-purple-white shadow rounded border-0 placeholder:italic placeholder:twitter-extra-light-gray"
               placeholder="Search"
             />
 
