@@ -20,7 +20,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`mx-4 md:mx-48 xl:mx-96 ${roboto.variable}} bg-white`}>
+      <body className={`mx-4 md:mx-48 xl:mx-96 ${roboto.variable}} bg-twitter-blue`}>
         <QueryWrapper>
           <NavBar />
           {children}

@@ -39,7 +39,7 @@ export default function CreateTweet() {
   }
 
   return (
-    <form onSubmit={submitCreateTweet} className="bg-white p-4 border-b-4 border-twitter-extra-light-gray">
+    <form onSubmit={submitCreateTweet} className="bg-white p-4 border-b-4 border-twitter-extra-light-gray rounded-xl">
       <div className="flex flex-col my-4">
         <textarea
           name="content"
