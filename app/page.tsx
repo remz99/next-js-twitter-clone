@@ -1,9 +1,9 @@
 'use client'
 
-import CreateTweet from "./timeline/create_tweet"
+import Timeline from "./timeline/page"
 
 export default function Home() {
   return (
-    <CreateTweet />
+    <Timeline />
   )
 }

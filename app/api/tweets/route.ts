@@ -9,7 +9,7 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
 // All
 export async function GET(request: Request) {
-  // Fetch all Posts
+  // Fetch all tweets
   try {
     const data = await prisma.tweet.findMany({
       include: {
@@ -31,7 +31,7 @@ export async function GET(request: Request) {
   }
 }
 
-// Create
+// Create Tweet
 export async function POST(request: Request) {
   const session = await getServerSession(authOptions)
 
@@ -39,9 +39,9 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: "Please sign in" }, { status: 401 })
   }
 
-  let params = await request.json()
+  let tweetParams = await request.json()
 
-  const content: string = params.content;
+  const content: string = tweetParams.content
 
   // get user
   const prismaUser = await prisma.user.findUnique({
@@ -66,7 +66,7 @@ export async function POST(request: Request) {
       }
     })
 
-    return NextResponse.json(data, {
+    return NextResponse.json({}, {
       status: 200
     })
   } catch(err) {

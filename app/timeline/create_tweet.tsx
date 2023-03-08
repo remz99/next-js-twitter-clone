@@ -1,13 +1,45 @@
 'use client'
 
 import { useState } from "react"
+import { useMutation, useQueryClient } from "@tanstack/react-query"
+import axios, { AxiosError } from "axios"
+import { toast } from "react-hot-toast"
 
 export default function CreateTweet() {
   const [content, setContent] = useState("")
   const [isDisabled, setIsDisabled] = useState(false)
+  const [toastPostID, setToastPostID] = useState('')
+
+  const queryClient = useQueryClient()
+
+  const { mutate } = useMutation(
+    async (content: string) => await axios.post('/api/tweets', { content: content }),
+    {
+      onError: (error) => {
+        if(error instanceof AxiosError) {
+          toast.error(error?.response?.data.message, { id: toastPostID })
+        }
+        setIsDisabled(false)
+      },
+      onSuccess: (data, variables, context) => {
+        toast.success("Post has been created", { id: toastPostID })
+        queryClient.invalidateQueries(['timeline'])
+        setContent('')
+        setIsDisabled(false)
+      }
+    }
+  )
+
+  const submitCreateTweet = async (event: React.FormEvent) => {
+    event.preventDefault()
+    setToastPostID(toast.loading("Creating your tweet"))
+
+    setIsDisabled(true)
+    mutate(content)
+  }
 
   return (
-    <form className="bg-white p-4 border-b-4 border-twitter-extra-light-gray">
+    <form onSubmit={submitCreateTweet} className="bg-white p-4 border-b-4 border-twitter-extra-light-gray">
       <div className="flex flex-col my-4">
         <textarea
           name="content"
@@ -24,24 +56,18 @@ export default function CreateTweet() {
           disabled={isDisabled}
           type="submit"
           className="text-sm bg-twitter-blue hover:bg-twitter-dark-gray active:bg-twitter-gray text-white py-2 px-6 rounded-xl disabled:opacity-25 transition-colors duration-200">
-            Post
+            Create
         </button>
       </div>
     </form>
   )
 }
 
-// import { useState } from "react"
 
-// import { useMutation, useQueryClient } from "@tanstack/react-query"
 
 // import { toast } from "react-hot-toast"
 
 // export default function AddPost() {
-//   const [title, setTitle] = useState('')
-//   const [isDisabled, setIsDisabled] = useState(false)
-
-//   const queryClient = useQueryClient()
 
 //   // wasn't working with let
 //   const [toastPostID, setToastPostID] = useState('')
