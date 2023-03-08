@@ -32,7 +32,7 @@ export async function GET(request: Request, { params }) {
     })
   } catch(err) {
     return NextResponse.json(
-      { error: 'Error has occured whilst loading tweet' },
+      { error: 'Error has occured whilst loading Tweet' },
       { status: 403 }
     )
   }
@@ -61,7 +61,7 @@ export async function DELETE(request: Request, { params }) {
     })
   } catch(err) {
     return NextResponse.json(
-      { error: 'Error has occured whilst deleting a tweet' },
+      { error: 'Error has occured whilst deleting Tweet' },
       { status: 403 }
     )
   }

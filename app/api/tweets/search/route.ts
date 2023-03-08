@@ -13,7 +13,12 @@ export async function GET(request: Request) {
 
   const query = searchParams.get('query')
 
-  // Fetch all tweets
+  if (!query?.length) {
+    return NextResponse.json([], {
+      status: 200
+    })
+  }
+
   try {
     const data = await prisma.tweet.findMany({
       where: {

@@ -39,7 +39,7 @@ export default function CreateTweet() {
   }
 
   return (
-    <form onSubmit={submitCreateTweet} className="bg-white p-4 border-b-4 border-twitter-extra-light-gray rounded-xl">
+    <form onSubmit={submitCreateTweet} className="p-4 border-b-4 border-twitter-extra-light-gray rounded-xl bg-twitter-extra-extra-light-gray">
       <div className="flex flex-col my-4">
         <textarea
           name="content"
@@ -50,64 +50,15 @@ export default function CreateTweet() {
         </textarea>
       </div>
       <div className="flex items-center justify-between gap-2">
-        <p className={`font-bold text-sm ${content.length > 150 ? "text-red-700" : "text-gray-700"}`}>{`${content.length}/150`}</p>
+        <p className={`font-bold text-sm ${content.length > 150 ? "text-red-700" : "twitter-black"}`}>{`${content.length}/150`}</p>
 
         <button
           disabled={isDisabled}
           type="submit"
-          className="text-sm bg-twitter-blue hover:bg-twitter-dark-gray active:bg-twitter-gray text-white py-2 px-6 rounded-xl disabled:opacity-25 transition-colors duration-200">
-            Create
+          className="text-sm bg-blue-400 hover:bg-blue-600 active:bg-twitter-gray text-white py-2 px-6 rounded-xl disabled:opacity-25 transition-colors duration-200">
+            Tweet
         </button>
       </div>
     </form>
   )
 }
-
-
-
-// import { toast } from "react-hot-toast"
-
-// export default function AddPost() {
-
-//   // wasn't working with let
-//   const [toastPostID, setToastPostID] = useState('')
-
-//   // create a post
-//   const { mutate } = useMutation(
-//     async (title: string) => await fetch('/api/posts', {
-//       method: 'POST',
-//       body: JSON.stringify({ title: title })
-//     }),
-
-//     {
-//       // not working
-//       // onError: (error) => {
-//       //   //if(error instanceof AxiosError) {
-//       //     toast.error(error?.response?.data.message, { id: toastPostID })
-//       //   //}
-//       //   setIsDisabled(false)
-//       // },
-//       onSuccess: (data, variables, context) => {
-//         if(data.status == 200) {
-//           toast.success("Post has been created", { id: toastPostID })
-//           queryClient.invalidateQueries(['posts'])
-//           setTitle('')
-//           setIsDisabled(false)
-//         } else {
-//           toast.error('Failed to create Post', { id: toastPostID })
-//           setIsDisabled(false)
-//         }
-//       }
-//     }
-//   )
-
-//   const submitPost = async (event: React.FormEvent) => {
-//     event.preventDefault()
-//     setToastPostID(toast.loading("Creating your post"))
-
-//     setIsDisabled(true)
-//     mutate(title)
-//   }
-
-//   )
-// }

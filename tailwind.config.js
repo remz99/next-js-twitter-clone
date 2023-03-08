@@ -11,7 +11,7 @@ module.exports = {
     extend: {
       colors: {
         // https://usbrandcolors.com/twitter-colors/
-        'twitter-blue': '#1DA1F2',
+        'twitter-blue': 'rgba(42,67,101)',
         'twitter-black': '#14171A',
         'twitter-dark-gray': '#657786',
         'twitter-light-gray': '#AAB8C2',

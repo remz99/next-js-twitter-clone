@@ -12,7 +12,7 @@ export default async function NavBar() {
   return (
     <nav className="flex justify-between items-center py-6">
       <Link href={'/'}>
-        <h1 className="font-bold text-lg">Twitter Clone</h1>
+        <h1 className="font-bold text-lg text-white">Home</h1>
       </Link>
 
       <ul className="flex items-center gap-6">

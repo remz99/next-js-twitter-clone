@@ -27,7 +27,7 @@ export default function CreateReplyForm({ id }: ReplyProps) {
       onSuccess: data => {
         setContent("")
         setIsDisabled(false)
-        toast.success("Reply has been created", { id: toastCommentID })
+        toast.success("Reply created", { id: toastCommentID })
         queryClient.invalidateQueries(['tweet-detail'])
       },
       onError: (error) => {
@@ -42,32 +42,30 @@ export default function CreateReplyForm({ id }: ReplyProps) {
   const submitComment = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsDisabled(true)
-    setToastCommentID(toast.loading("Adding your Comment"))
+    setToastCommentID(toast.loading("Creating your Reply"))
     mutate({ content, tweetId: id })
   }
 
   return (
-    <form onSubmit={submitComment} className="my-8">
-      <h3>Add a Reply</h3>
-
-      <div className="flex flex-col my-2">
-        <input
+    <form onSubmit={submitComment} className="my-8 p-4 bg-twitter-extra-extra-light-gray rounded-xl">
+      <div className="flex flex-col my-4">
+        <textarea
           onChange={(e) => setContent(e.target.value)}
           value={content}
-          type="text"
-          title="title"
-          placeholder="Add content..."
-          className="p-4 text-lg rounded-md my-2" />
+          title="content"
+          placeholder="Add Reply..."
+          className="p-4 text-lg rounded-md my-2 bg-twitter-extra-extra-light-gray" />
       </div>
 
-      <div className="flex items-center gap-2">
+      <div className="flex items-center justify-between gap-2">
+        <p className={`font-bold text-sm ${content.length > 150 ? "text-red-700" : "twitter-black"}`}>{`${content.length}/150`}</p>
+
         <button
           disabled={isDisabled}
           type="submit"
-          className="text-sm bg-teal-600 text-white py-2 px-6 rounded-xl disabled:opacity-25">
+          className="text-sm bg-blue-400 hover:bg-blue-600 text-white py-2 px-6 rounded-xl disabled:opacity-25">
             Add a Reply
         </button>
-        <p className={`font-bold text-sm ${content.length > 150 ? "text-red-700" : "text-gray-700"}`}>{`${content.length}/300`}</p>
       </div>
     </form>
   )

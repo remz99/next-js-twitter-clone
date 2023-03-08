@@ -32,14 +32,14 @@ export async function POST(request: Request, { params }) {
 
   // validate title
   if(content.length > 150) {
-    return NextResponse.json({message: 'Please write a shorter post' }, { status: 422 })
+    return NextResponse.json({message: 'Tweet is too long' }, { status: 422 })
   }
 
   if(!content.length) {
-    return NextResponse.json({message: 'Please do not leave this empty' }, { status: 422 })
+    return NextResponse.json({message: 'Tweet content is missing' }, { status: 422 })
   }
 
-  // Fetch specific Post
+  // Fetch specific Tweet
   try {
     const data = await prisma.tweet.create({
       data: {

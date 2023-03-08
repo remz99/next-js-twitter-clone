@@ -24,7 +24,7 @@ const fetchDetails = async (id: string) => {
 }
 
 export default function TweetDetail(url: URL) {
-  const { data, isLoading } = useQuery<PostType>({
+  const { data, isLoading } = useQuery<TweetType>({
     queryKey: ['tweet-detail'],
     queryFn: () => fetchDetails(url.params.id)
   })
@@ -36,6 +36,10 @@ export default function TweetDetail(url: URL) {
       <Tweet tweet={data} />
 
       <CreateReplyForm id={data.id} />
+
+      <div className="my-8 flex items-center gap-4 text-white before:h-px before:flex-1 before:bg-twitter-extra-light-gray  before:content-[''] after:h-px after:flex-1 after:bg-twitter-extra-light-gray  after:content-['']">
+        Replies
+      </div>
 
       {
         data?.replies.map((reply: ReplyType) => <Reply key={reply.id} reply={reply} /> )

@@ -10,13 +10,20 @@ type User = {
 }
 
 export default function UserNav({ image }: User) {
+  const handleClick = () => {
+    signOut()
+  }
+
   return (
     <li className="flex gap-8 items-center">
-      <button onClick={() => signOut()} className="bg-gray-700 text-white text-sm px-6 py-2 rounded-md">
-        Sign Out
-      </button>
-
-      <Image width={64} height={64} src={image} alt='user-image' className='rounded-full'></Image>
+      <Image
+        width={64}
+        height={64}
+        src={image}
+        alt='user-image'
+        className='rounded-full cursor-pointer'
+        onClick={handleClick}
+      />
     </li>
   )
 }
