@@ -16,9 +16,7 @@ export default function UserNav({ image }: User) {
         Sign Out
       </button>
 
-      <Link href={'/dashboard'}>
-        <Image width={64} height={64} src={image} alt='user-image' className='rounded-full'></Image>
-      </Link>
+      <Image width={64} height={64} src={image} alt='user-image' className='rounded-full'></Image>
     </li>
   )
 }
