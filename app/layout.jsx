@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
             </QueryWrapper>
           </main>
 
-          <aside className="w-2/5">
+          <aside className="w-2/5 invisible lg:visible">
             <Sidebar />
           </aside>
         </div>
