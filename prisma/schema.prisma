@@ -18,6 +18,10 @@ model Tweet {
   user      User     @relation(fields: [userId], references: [id])
   userId    String
 
+  parentId String?
+  parent   Tweet?  @relation("Replies", fields: [parentId], references: [id])
+  replies  Tweet[] @relation("Replies")
+
   @@map("tweets")
 }
 
