@@ -22,7 +22,7 @@ export default function CreateTweet() {
         setIsDisabled(false)
       },
       onSuccess: (data, variables, context) => {
-        toast.success("Post has been created", { id: toastPostID })
+        toast.success("Tweet created", { id: toastPostID })
         queryClient.invalidateQueries(['timeline'])
         setContent('')
         setIsDisabled(false)
@@ -32,7 +32,7 @@ export default function CreateTweet() {
 
   const submitCreateTweet = async (event: React.FormEvent) => {
     event.preventDefault()
-    setToastPostID(toast.loading("Creating your tweet"))
+    setToastPostID(toast.loading("Creating Tweet"))
 
     setIsDisabled(true)
     mutate(content)

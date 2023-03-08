@@ -19,19 +19,19 @@ export default function Sidebar() {
   const [searchTerm, setSearchTerm] = useState("")
   const [isDisabled, setIsDisabled] = useState(false)
   const [results, setResults] = useState([])
-  const [showLoading, setShowLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
     setResults([])
 
     if(searchTerm.length) {
-      setShowLoading(true)
+      setIsLoading(true)
       setIsDisabled(true)
 
       const results = searchTweets(searchTerm)
       setResults(await results)
-      setShowLoading(false)
+      setIsLoading(false)
       setIsDisabled(false)
     }
   }
@@ -40,7 +40,6 @@ export default function Sidebar() {
     <div className="mx-4 py-6 border-l-4 h-full">
       <div className="mx-auto max-w-xs">
         <form onSubmit={handleSubmit} className="p-4">
-
           <label className="relative block">
             <span className="sr-only">Search</span>
             <span className="absolute inset-y-0 left-0 flex items-center pl-2">
@@ -52,23 +51,19 @@ export default function Sidebar() {
                 alt="magnifying-glass"
               />
             </span>
-
             <input
               type="text"
               onChange={(e) => setSearchTerm(e.target.value) }
               className="h-10 px-6 pr-5 pl-8 w-full rounded-xl text-sm focus:outline-none bg-purple-white shadow rounded border-0 placeholder:italic placeholder:twitter-extra-light-gray"
               placeholder="Search"
             />
-
           </label>
-
-
         </form>
       </div>
 
       <div className="my-2 mx-10">
         <div className="flex justify-center">
-          { showLoading &&
+          { isLoading &&
               <Image
                 height={128}
                 width={128}

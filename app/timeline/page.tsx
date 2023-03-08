@@ -9,6 +9,8 @@ import CreateTweet from "./create_tweet"
 
 import Tweet from "../tweets/tweet"
 
+import Image from "next/image"
+
 const allTweets = async () => {
   const response = await axios.get("/api/tweets")
   return response.data
@@ -20,7 +22,18 @@ export default function Timeline() {
     queryKey: ["timeline"],
   })
   if (error) return error
-  if (isLoading) return "Loading....."
+  if (isLoading) {
+    return (
+      <div className="flex justify-center my-20">
+        <Image
+          height={128}
+          width={128}
+          src="loading-spinner.svg"
+          alt="Loader"
+        />
+      </div>
+    )
+  }
 
   return (
     <>
