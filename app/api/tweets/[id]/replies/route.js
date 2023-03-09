@@ -8,7 +8,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
 // Create Tweet: POST /api/tweets/123abc/replies
-export async function POST(request: Request, { params }) {
+export async function POST(request, { params }) {
   const session = await getServerSession(authOptions)
 
   if(!session) {
@@ -25,10 +25,7 @@ export async function POST(request: Request, { params }) {
   let replyParams = await request.json()
 
   const tweetId = params.id
-  const content: string = replyParams.data.content
-
-  console.log(tweetId)
-  console.log(content)
+  const content = replyParams.data.content
 
   // validate title
   if(content.length > 150) {

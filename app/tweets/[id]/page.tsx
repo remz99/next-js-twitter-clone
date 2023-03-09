@@ -7,6 +7,7 @@ import axios from "axios"
 import Image from "next/image"
 import Reply from "../reply"
 import CreateReplyForm from "../create_reply_form"
+import { ReplyType } from "@/app/types/Reply"
 
 type URL = {
   params: {
@@ -40,16 +41,16 @@ export default function TweetDetail(url: URL) {
 
   return (
     <div>
-      <Tweet tweet={data} />
+      <Tweet tweet={data!} />
 
       <div className="my-8 flex items-center gap-4 text-white before:h-px before:flex-1 before:bg-twitter-extra-light-gray  before:content-[''] after:h-px after:flex-1 after:bg-twitter-extra-light-gray after:content-['']">
         Replies
       </div>
 
-      <CreateReplyForm id={data.id} />
+      <CreateReplyForm id={data!.id} />
 
       {
-        data?.replies.map((reply: ReplyType) => <Reply key={reply.id} reply={reply} /> )
+        data?.replies.map((reply: ReplyType) => <Reply key={reply.id} reply={reply!} /> )
       }
     </div>
   )

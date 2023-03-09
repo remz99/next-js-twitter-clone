@@ -3,7 +3,11 @@
 import Image from "next/image"
 import { ReplyType } from "../types/Reply"
 
-export default function Reply({ reply }: ReplyType) {
+type ReplyProps = {
+  reply: ReplyType
+}
+
+export default function Reply({ reply }: ReplyProps) {
   const { id, content, createdAt } = reply
   const { name, image } = reply.user
 

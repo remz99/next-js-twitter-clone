@@ -54,7 +54,7 @@ export default function Sidebar() {
             <input
               type="text"
               onChange={(e) => setSearchTerm(e.target.value) }
-              className="h-10 px-6 pr-5 pl-8 w-full rounded-xl text-sm focus:outline-none bg-purple-white shadow rounded border-0 placeholder:italic placeholder:twitter-extra-light-gray"
+              className="h-10 px-6 pr-5 pl-8 w-full text-sm focus:outline-none bg-purple-white shadow rounded border-0 placeholder:italic placeholder:twitter-extra-light-gray"
               placeholder="Search"
             />
           </label>

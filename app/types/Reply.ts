@@ -1,7 +1,8 @@
 export type ReplyType = {
   id: string
   content: string
-  updatedAt?: string
+  createdAt: string
+  updatedAt: string
   user: {
     id: string
     image: string

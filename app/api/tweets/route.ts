@@ -63,7 +63,7 @@ export async function POST(request: Request) {
     const data = await prisma.tweet.create({
       data: {
         content,
-        userId: prismaUser.id
+        userId: prismaUser!.id
       }
     })
 

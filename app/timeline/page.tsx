@@ -17,11 +17,11 @@ const allTweets = async () => {
 }
 
 export default function Timeline() {
-  const { data, error, isLoading } = useQuery<TweetType>({
+  const { data, error, isLoading } = useQuery<TweetType[]>({
     queryFn: allTweets,
     queryKey: ["timeline"],
   })
-  if (error) return error
+
   if (isLoading) {
     return (
       <div className="flex justify-center my-20">

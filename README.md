@@ -11,6 +11,10 @@ It uses:
 * [Tailwindcss](https://tailwindcss.com/) for CSS framework
 * [Axios](https://axios-http.com/) and [React-Query](https://react-query-v3.tanstack.com/)
 
+Todo:
+* Remove React-Query and Axios for built in cache and fetch
+* Add state management
+* I'm fairly new to typescript and had a few errors in the api routes which i worked around by changing back to js
 
 # References
 * https://beta.nextjs.org/docs
