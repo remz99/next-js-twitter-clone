@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`flex min-h-screen flex-col ${roboto.variable}} bg-twitter-blue`}>
         <div className="flex flex-1 flex-row">
-          <nav className="w-2/5 text-white h-12 pl-32 py-4">
+          <nav className="w-2/5 text-white h-12 pl-32 py-4 invisible lg:visible">
             { /* Unused left sidebar */ }
           </nav>
 
