@@ -15,6 +15,7 @@ Todo:
 * Remove React-Query and Axios for built in cache and fetch.
 * Add state management
 * I'm fairly new to typescript and had a few errors in the api routes which i worked around by changing back to js
+* Make more mobile friendly
 
 # References
 * https://beta.nextjs.org/docs
